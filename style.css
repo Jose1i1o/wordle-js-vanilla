@@ -27,18 +27,51 @@ body {
 }
 
 .game-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  grid-gap: 1rem;
   width: 55vw;
   height: 50vh;
 }
 
-.keyboard-container {
+.game-grid div {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  font-size: 1rem;
+}
+
+.game-grid .cell {
+  width: 5rem;
+  height: 5rem;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.keyboard-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 50vw;
+}
+
+.keyboard-key {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 0.25rem;
+  margin: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: #fafafa;
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.keyboard-container button:nth-child(10) {
+  width: 6rem;
+}
+
+.keyboard-container button:nth-child(11) {
+  width: 6rem;
 }
