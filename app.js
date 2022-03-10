@@ -1,6 +1,12 @@
 const gridDisplay = document.querySelector('.game-grid');
 const keyboard = document.querySelector('.keyboard-container');
 
+const wordle = "magic";
+let currentCel = 0;
+let celColumn = 0;
+
+
+
 const keyboardKeys = [
     {
         key: 'Q',
@@ -60,12 +66,12 @@ const keyboardKeys = [
 ];
 
 const rowAttempts = [
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', ''],
-    ['', '', '', '', '', '']
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', '']
 ];
 
 rowAttempts.forEach((rowAttempt, rowAttemptIndex) => {
@@ -81,11 +87,6 @@ rowAttempts.forEach((rowAttempt, rowAttemptIndex) => {
     gridDisplay.appendChild(row);
 });
 
-
-const handleClick = (e) => {
-    console.log('clicked');
-};
-
 keyboardKeys.forEach(key => {
     const keyElement = document.createElement('button');
     keyElement.classList.add('keyboard-key');
@@ -93,7 +94,48 @@ keyboardKeys.forEach(key => {
     keyElement.setAttribute('id', key.key);
     keyElement.setAttribute('data-key', key.keyCode);
     keyElement.setAttribute('data-key-audio', key.audio);
-    keyElement.addEventListener('click', handleClick);
+    keyElement.addEventListener('click', () => handleClick(
+        keyElement.getAttribute('id'),
+        keyElement.getAttribute('data-key'),
+        keyElement.getAttribute('data-key-audio')
+    ));
     keyboard.appendChild(keyElement);
 }
 );
+
+const handleClick = (key) => {
+    const keyAudio = document.getElementById(key).getAttribute('data-key-audio');
+    const audio = new Audio(keyAudio);
+    if (key === 'Delete') {
+        deleteLetter();
+        console.log(rowAttempts);
+        return;
+    }
+    if (key === 'Enter') {
+        console.log('check row');
+        return;
+    }
+    addLetter(key);
+    audio.play();
+};
+
+const addLetter = (key) => {
+    if (currentCel < 6 && celColumn < 5) {
+        const cell = document.getElementById('rowAttempt-' + currentCel + '-attempt-' + celColumn);
+        cell.textContent = key;
+        rowAttempts[currentCel][celColumn] = key;
+        cell.setAttribute('data', key);
+        celColumn++;
+    }
+}
+
+
+const deleteLetter = () => {
+    if (celColumn > 0) {
+        celColumn--;
+        const cell = document.getElementById('rowAttempt-' + currentCel + '-attempt-' + celColumn);
+        cell.textContent = '';
+        rowAttempts[currentCel][celColumn] = '';
+        cell.setAttribute('data', '');
+    }
+}
