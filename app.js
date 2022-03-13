@@ -180,6 +180,9 @@ const colorCells = function(color) {
     cells.forEach((cell, index) => {
         const cellAttribute = cell.getAttribute('data').toLocaleLowerCase();
         console.log(cellAttribute);
+
+        setTimeout(() => {
+            cell.classList.add('turn');
         if (cellAttribute === secretWord[index]) {
             cell.classList.add('correct-position');
         } else if (secretWord.includes(cellAttribute)) {
@@ -187,10 +190,6 @@ const colorCells = function(color) {
         } else {
             cell.classList.add('wrong-letter');
         }
+        }, index * 100);
     });
 }
-
-
-    //   .correct-position
-    //   .wrong-position
-    //   .wrong-letter

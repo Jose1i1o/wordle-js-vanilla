@@ -9,6 +9,10 @@ body {
   background-color: #1a1a1a;
 }
 
+nav {
+  padding-top: 2rem;
+}
+
 .wordle-container {
   height: 70vh;
   display: flex;
@@ -28,8 +32,9 @@ body {
 
 .game-grid {
   width: 55vw;
-  height: 50vh;
-  margin-top: 4rem;
+  height: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .game-grid div {
@@ -60,6 +65,7 @@ body {
   width: 4rem;
   height: 4rem;
   margin-right: 0.25rem;
+  margin-top: 4rem;
   margin: 0.25rem;
   border-radius: 0.25rem;
   background-color: #fafafa;
@@ -87,6 +93,19 @@ body {
   margin: 0.5rem;
 }
 
+.cell.turn {
+  animation: 0.5s linear turning;
+}
+
+@keyframes turning {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
 .correct-position {
   background-color: #6aaa64;
   color: #fff;
@@ -106,14 +125,13 @@ body {
 @media screen and (max-width: 800px) {
   .game-grid {
     width: 90vw;
-    height: 50vh;
+    height: auto;
   }
   .keyboard-container {
     width: 90vw;
   }
 }
 
-/* if screen is less than 400px include .game-grid and .keyboard-container in the same place*/
 @media screen and (max-width: 400px) {
   .wordle-container {
     height: 70vh;
@@ -125,15 +143,17 @@ body {
   }
   .game-grid {
     width: 90vw;
-    height: 60vh;
+    height: auto;
     margin-top: 0;
+  }
+  .keyboard-container {
+    width: 90vw;
   }
   .game-grid .cell {
     width: 2rem;
     height: 2rem;
   }
   .keyboard-container {
-    position: absolute;
     margin: 3rem;
   }
   .keyboard-container button {
