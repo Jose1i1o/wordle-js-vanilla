@@ -5,14 +5,24 @@
 
 body {
   background-color: #1a1a1a;
+  height: 100vh;
 }
 
 nav {
   padding-top: auto;
+  font-size: 1.5rem;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  font-size: 1.5rem;
 }
 
 .wordle-container {
-  height: 70vh;
+  height: 90vh;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -23,16 +33,16 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 10rem;
+  padding-top: 7rem;
   width: 50%;
-  font-size: 1rem;
+  font-size: 2rem;
   border-bottom: 1px solid #e0e0e0;
 }
 
 .game-grid {
   width: 55vw;
   height: auto;
-  margin-top: 1rem;
+  margin-top: 5rem;
   margin-bottom: 1rem;
 }
 
@@ -51,35 +61,41 @@ nav {
   justify-content: center;
   align-items: center;
   margin: 0.25rem;
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
 .keyboard-container {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  width: 50vw;
+  width: 32vw;
+  margin-top: 10rem;
 }
 
 .keyboard-key {
-  width: 4rem;
-  height: 4rem;
   margin-right: 0.25rem;
   margin-top: 4rem;
   margin: 0.25rem;
+}
+
+.keyboard-container button {
+  width: 4rem;
+  height: 5rem;
   border-radius: 0.25rem;
   background-color: #fafafa;
   color: #333;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-weight: bold;
   cursor: pointer;
 }
 
 .keyboard-container button:nth-child(27) {
-  width: 6rem;
+  width: 9rem;
 }
 
 .keyboard-container button:nth-child(28) {
-  width: 6rem;
+  width: 9rem;
 }
 
 .show-message {
@@ -106,18 +122,18 @@ nav {
 }
 
 .correct-position {
-  background-color: #6aaa64;
-  color: #fff;
+  background-color: #6aaa64 !important;
+  color: #fff !important;
   border: none !important;
 }
 .wrong-position {
-  background-color: #c9b458;
-  color: #fff;
+  background-color: #c9b458 !important;
+  color: #fff !important;
   border: none !important;
 }
 .wrong-letter {
-  background-color: gray;
-  color: #fff;
+  background-color: gray !important;
+  color: #fff !important;
   border: none !important;
 }
 
@@ -171,5 +187,6 @@ nav {
   .keyboard-container button {
     width: 2rem;
     height: 2rem;
+    font-size: 1rem;
   }
 }

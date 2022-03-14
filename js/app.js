@@ -140,7 +140,7 @@ const keyboardKeys = [
         audio: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3',
     },
     {
-        key: 'Enter',
+        key: 'Submit',
         keyCode: 13,
         audio: 'https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3'
     },
@@ -195,10 +195,9 @@ const handleClick = function(key) {
     audio.play();
     if (key === 'Delete') {
         deleteLetter();
-        console.log(rowAttempts);
         return;
     }
-    if (key === 'Enter') {
+    if (key === 'Submit') {
         console.log('check row' + checkMyRow());
         console.log(rowAttempts);
         return;
@@ -255,21 +254,35 @@ const displayMessage = function(message) {
     }, 3000);
 }
 
-const colorCells = function(color) {
-    const cells = document.querySelector('#row-' + thisRow).childNodes;
-    cells.forEach((cell, index) => {
-        const cellAttribute = cell.getAttribute('data').toLocaleLowerCase();
-        console.log(cellAttribute);
+const colorKeyboard = function(id, color) {
+    const key = document.getElementById(id);
+    console.log(key);
+    key.classList.add(color);
+}
 
-        setTimeout(() => {
+const colorCells = function() {
+    const cells = document.getElementById('row-' + thisRow).childNodes;
+
+    cells.forEach((cell, index) => {
+        const cellAttribute = cell.getAttribute('data').toLocaleLowerCase()
+        const cellAttributeKeyboard = cell.getAttribute('data');
+        console.log(cellAttribute);
+        
+        setTimeout(function(){
             cell.classList.add('turn');
-        if (cellAttribute === secretWord[index]) {
-            cell.classList.add('correct-position');
-        } else if (secretWord.includes(cellAttribute)) {
-            cell.classList.add('wrong-position');
-        } else {
-            cell.classList.add('wrong-letter');
-        }
+            if (cellAttribute === secretWord[index]) {
+                cell.classList.add('correct-position');
+                colorKeyboard(cellAttributeKeyboard, 'correct-position');
+                secretWord = secretWord.replace(attempt[index], '');
+            } else if (secretWord.includes(cellAttribute)) {
+                cell.classList.add('wrong-position');
+                colorKeyboard(cellAttributeKeyboard, 'wrong-position');
+                secretWord = secretWord.replace(attempt[index], '');
+            } else {
+                cell.classList.add('wrong-letter');
+                colorKeyboard(cellAttributeKeyboard, 'wrong-letter');
+                secretWord = secretWord.replace(attempt[index], '');
+            }
         }, index * 100);
     });
 }
