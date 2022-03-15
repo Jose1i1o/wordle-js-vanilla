@@ -1,0 +1,53 @@
+@media screen and (max-width: 1000px) {
+  .nav {
+    padding-bottom: 2rem;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+  }
+
+  .game-grid {
+    width: 90vw;
+    height: auto;
+  }
+  .keyboard-container {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .nav {
+    padding-bottom: 2rem;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+  }
+  .wordle-container {
+    height: 70vh;
+    position: relative;
+  }
+
+  .title-container {
+    width: 100%;
+  }
+  .game-grid {
+    width: 90vw;
+    height: auto;
+    margin-top: 0;
+  }
+  .keyboard-container {
+    width: 90vw;
+  }
+  .game-grid .cell {
+    width: 2rem;
+    height: 2rem;
+  }
+  .keyboard-container {
+    margin: 3rem;
+  }
+  .keyboard-container button {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+}
