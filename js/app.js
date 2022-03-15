@@ -264,7 +264,7 @@ const colorCells = function() {
     const cells = document.getElementById('row-' + thisRow).childNodes;
 
     cells.forEach((cell, index) => {
-        const cellAttribute = cell.getAttribute('data').toLocaleLowerCase()
+        const cellAttribute = cell.getAttribute('data').toLocaleLowerCase();
         const cellAttributeKeyboard = cell.getAttribute('data');
         console.log(cellAttribute);
         
