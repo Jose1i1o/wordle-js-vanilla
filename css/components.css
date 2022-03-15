@@ -1,9 +1,18 @@
 .wordle-container {
   height: 90vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
+}
+
+.title-container__page1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  font-size: 4.5rem;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .title-container {
@@ -12,7 +21,6 @@
   align-items: center;
   padding-top: 7rem;
   padding-bottom: 1rem;
-  width: 50%;
   font-size: 3rem;
   border-bottom: 1px solid #e0e0e0;
 }
@@ -26,12 +34,10 @@
   justify-content: center;
   align-items: center;
   width: 50%;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 
 .username-container__forminput {
-  width: 100%;
+  width: max-content;
   height: 3rem;
   border-radius: 0.25rem;
   border: 1px solid #e0e0e0;

@@ -6,6 +6,19 @@
     flex-direction: column;
   }
 
+  .title-container__page1 {
+    display: column;
+    align-items: center;
+    width: 90vw !important;
+  }
+
+  .username-container {
+    display: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+
   .game-grid {
     width: 90vw;
     height: auto;
@@ -15,15 +28,22 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
   .nav {
     padding-bottom: 2rem;
     display: flex;
     align-items: left;
     flex-direction: column;
   }
+
+  .title-container__page1 {
+    display: column;
+    align-items: center;
+    width: 90vw !important;
+    font-size: 2.5rem !important;
+  }
+
   .wordle-container {
-    height: 70vh;
     position: relative;
   }
 
@@ -31,8 +51,6 @@
     width: 100%;
   }
   .game-grid {
-    width: 90vw;
-    height: auto;
     margin-top: 0;
   }
   .keyboard-container {
@@ -44,10 +62,10 @@
   }
   .keyboard-container {
     margin: 3rem;
+    width: 90vw;
+    height: auto;
   }
   .keyboard-container button {
-    width: 2rem;
-    height: 2rem;
     font-size: 1rem;
   }
 }
