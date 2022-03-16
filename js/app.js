@@ -230,7 +230,8 @@ const checkMyRow = function() {
     if (thisColumn === 5) {
         colorCells();
         if (myAttempt === secretWord) {
-            displayMessage('You win!');
+            document.getElementById("page2").classList.add("hide");
+            document.getElementById("page3").classList.remove("hide");
             return;
         } else if (myAttempt !== secretWord && thisRow < 5) {
             thisRow++;
@@ -256,7 +257,6 @@ const displayMessage = function(message) {
 
 const colorKeyboard = function(id, color) {
     const key = document.getElementById(id);
-    console.log(key);
     key.classList.add(color);
 }
 
@@ -266,22 +266,18 @@ const colorCells = function() {
     cells.forEach((cell, index) => {
         const cellAttribute = cell.getAttribute('data').toLocaleLowerCase();
         const cellAttributeKeyboard = cell.getAttribute('data');
-        console.log(cellAttribute);
         
         setTimeout(function(){
             cell.classList.add('turn');
             if (cellAttribute === secretWord[index]) {
                 cell.classList.add('correct-position');
                 colorKeyboard(cellAttributeKeyboard, 'correct-position');
-                secretWord = secretWord.replace(attempt[index], '');
             } else if (secretWord.includes(cellAttribute)) {
                 cell.classList.add('wrong-position');
                 colorKeyboard(cellAttributeKeyboard, 'wrong-position');
-                secretWord = secretWord.replace(attempt[index], '');
             } else {
                 cell.classList.add('wrong-letter');
                 colorKeyboard(cellAttributeKeyboard, 'wrong-letter');
-                secretWord = secretWord.replace(attempt[index], '');
             }
         }, index * 100);
     });
