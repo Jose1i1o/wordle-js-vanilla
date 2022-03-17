@@ -1,5 +1,5 @@
 import { initApp } from "./initApp.js";
-import "./app.js";
+import "./gameLogic.js";
 
 window.onload = function() {
     initApp();

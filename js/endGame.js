@@ -1,25 +1,48 @@
-import { getScore } from "./app.js";
+import { getScore } from "./gameLogic.js";
+import { ranking } from "./data/ranking.js";
+import { getUserName } from "./utils/getUsername.js";
 
-export const endGame = function() {
+export const endContainer = function() {
+    messageText();
+    rankingContainer();
+}
+
+const messageText = function() {
+    const score = getScore();
+    const userName = getUserName("get");
+    const message = document.getElementById("messageEnd");
+    if (score === 0) {
+        message.textContent = `${userName}, you lost!`;
+    }
+    if (score > 0) {
+        message.textContent = `Congratulations, ${userName}! Your score is ${score}`;
+    }
+
+    const messageText = document.createElement('div');
+    messageText.classList.add("messageEnd");
+    messageText.textContent = message.textContent;
+}
+
+const rankingContainer = function() {
     document.getElementById("page2").classList.add("hide");
     document.getElementById("page3").classList.remove("hide");
     const score = getScore();
+    const userName = getUserName("get");
+    const userScore = {
+        name: userName,
+        score: score
+    }
+    ranking.push(userScore);
+    ranking.sort((a, b) => b.score - a.score);
+    ranking.reverse();
+
+    console.log(ranking);
     const rankingContainer = document.getElementById("rankingList");
-    const newRank = document.createElement("span");
-    const newRankTitle = document.createElement("span");
-    const newRankAttempts = document.createElement("span");
-    const newRankScore = document.createElement("span");
-
-    newRank.classList.add("ranking-item");
-    newRankTitle.classList.add("ranking-item-title");
-    newRankAttempts.classList.add("ranking-item-attempts");
-    newRankScore.classList.add("ranking-item-score");
-
-    newRankTitle.textContent = name;
-    newRankAttempts.textContent = attempts;
-    newRankScore.textContent = score;
-
-    newRank.appendChild(newRankTitle, newRankAttempts, newRankScore);
-
-    rankingContainer.appendChild(newRank);
-};
+    
+    for (let i = 0; i < ranking.length; i++) {
+        const rankingItem = document.createElement("li");
+        rankingItem.classList.add("playerScore");
+        rankingItem.textContent = `${i + 1}. ${ranking[i].name} - ${ranking[i].score}`;
+        rankingContainer.appendChild(rankingItem);
+    }
+}

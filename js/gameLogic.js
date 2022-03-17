@@ -1,6 +1,6 @@
 import { rowAttempts } from "./data/grid.js"
 import { upliftingMessages } from "./data/uplifting.js"
-import { endGame } from "./endGame.js";
+import { endContainer } from "./endGame.js";
 
 const gridDisplay = document.querySelector('.game-grid');
 const keyboard = document.querySelector('.keyboard-container');
@@ -191,8 +191,7 @@ const handleClick = function(key) {
         return;
     }
     if (key === 'Submit') {
-        console.log('check row' + checkMyRow());
-        console.log(rowAttempts);
+        checkMyRow();
         return;
     }
     addLetter(key);
@@ -232,7 +231,7 @@ const checkMyRow = function() {
         colorCells();
         if (myAttempt === secretWord) {
             setTimeout(() => {
-                endGame();
+                endContainer();
             }, 3000);
             return;
         } else if (myAttempt !== secretWord && thisRow < 5) {

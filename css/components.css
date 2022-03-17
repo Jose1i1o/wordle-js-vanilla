@@ -116,3 +116,26 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+.playerScore {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: auto;
+  height: auto;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+.message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin-top: 5rem;
+}
