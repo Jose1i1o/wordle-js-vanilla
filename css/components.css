@@ -88,11 +88,31 @@
 }
 
 .show-message {
-  background-color: #fafafa;
-  color: #333;
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: 2rem;
+  background-color: var(--white);
+  color: var(--black);
   font-size: 1rem;
   font-weight: bold;
   border-radius: 0.25rem;
   padding: 0.5rem;
-  margin: 0.5rem;
+  margin: 1rem;
+}
+
+.timer {
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+}
+
+.replay {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 1.5rem;
+  font-weight: bold;
 }

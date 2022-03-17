@@ -47,18 +47,21 @@
         </div>
         <section id="page2">
           <h2 class="title-container">Wordle</h2>
+          <div id="timer" class="timer">Score: 0 seconds</div>
           <article class="message-container"></article>
           <article class="game-grid"></article>
           <article class="keyboard-container"></article>
+          <button id="replay" class="btn replay">Reload game &#8634;</button>
         </section>
         <section id="page3">
           <h1 class="title-container">You Win!</h1>
-          <h2 class="message-container">The word was ${secretWord}</h2>
-          <h2 class="message-container">You resolved the puzzle in attempts</h2>
           <button id="play-again">Play Again</button>
+          <header>
+            <h2 class="title-container">Ranking</h2>
+          </header>
+          <article id="rankingList" class="ranking-container__list"></article>
         </section>
       </main>
     </div>
-    <footer>Assembler &copy; 2022</footer>
   </body>
 </html>

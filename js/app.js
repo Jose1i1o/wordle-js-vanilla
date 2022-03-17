@@ -1,12 +1,14 @@
+import { rowAttempts } from "./data/grid.js"
+import { upliftingMessages } from "./data/uplifting.js"
+import { endGame } from "./endGame.js";
+
 const gridDisplay = document.querySelector('.game-grid');
 const keyboard = document.querySelector('.keyboard-container');
 const messageContainer = document.querySelector('.message-container');
 
-const secretWord = "casco";
+const secretWord = "aaaaa";
 let thisRow = 0;
 let thisColumn = 0;
-
-
 
 const keyboardKeys = [
     {
@@ -151,15 +153,6 @@ const keyboardKeys = [
     },
 ];
 
-const rowAttempts = [
-    ['', '', '', '', ''],
-    ['', '', '', '', ''],
-    ['', '', '', '', ''],
-    ['', '', '', '', ''],
-    ['', '', '', '', ''],
-    ['', '', '', '', '']
-];
-
 rowAttempts.forEach((rowAttempt, rowAttemptIndex) => {
     const row = document.createElement('div');
     row.setAttribute('id', 'row-' + rowAttemptIndex);
@@ -225,18 +218,27 @@ const deleteLetter = function() {
     }
 }
 
+export const getScore = function () {
+    const timer = document.getElementById("timer").innerHTML;
+    const score = parseInt(timer.split(" ")[1]);
+    const attemptNumber = (rowAttempts.length - 1)/5;
+    const result = score / attemptNumber;
+    return result;
+}
+
 const checkMyRow = function() {
     const myAttempt = rowAttempts[thisRow].join('').toLocaleLowerCase();
     if (thisColumn === 5) {
         colorCells();
         if (myAttempt === secretWord) {
-            document.getElementById("page2").classList.add("hide");
-            document.getElementById("page3").classList.remove("hide");
+            setTimeout(() => {
+                endGame();
+            }, 3000);
             return;
         } else if (myAttempt !== secretWord && thisRow < 5) {
             thisRow++;
             thisColumn = 0
-            displayMessage('Try again!');
+            displayMessage(upliftingMessages[Math.ceil(Math.random() * upliftingMessages.length)]);
             return;
         } else if (myAttempt !== secretWord && thisRow >= 5) {
             displayMessage('Game Over!');

@@ -17,8 +17,9 @@ nav {
 }
 
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
   font-size: 1.5rem;
 }
