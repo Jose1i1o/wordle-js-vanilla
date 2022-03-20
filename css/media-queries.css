@@ -1,11 +1,4 @@
 @media screen and (max-width: 1000px) {
-  .nav {
-    padding-bottom: 2rem;
-    display: flex;
-    align-items: left;
-    flex-direction: column;
-  }
-
   .title-container__page1 {
     width: 100% !important;
   }
@@ -27,13 +20,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  .nav {
-    padding: 0.5rem;
-    display: flex;
-    align-items: left;
-    flex-direction: column;
-  }
-
   body {
     width: fit-content !important;
   }

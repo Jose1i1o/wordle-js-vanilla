@@ -39,7 +39,6 @@ const rankingContainer = function() {
     ranking.sort((a, b) => b.score - a.score);
     ranking.reverse();
 
-    console.log(ranking);
     const rankingContainer = document.getElementById("rankingList");
     
     for (let i = 0; i < ranking.length; i++) {
