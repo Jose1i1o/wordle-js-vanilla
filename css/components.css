@@ -90,8 +90,9 @@
 .show-message {
   display: flex;
   justify-content: center;
-  width: auto;
-  height: 2rem;
+  align-items: center;
+  width: 55vw;
+  height: auto;
   background-color: var(--white);
   color: var(--black);
   font-size: 1rem;
@@ -120,11 +121,8 @@
 .playerScore {
   display: flex;
   justify-content: left;
-  align-items: center;
-  width: auto;
-  height: auto;
-  background-color: var(--white);
-  color: var(--black);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 0.25rem;
@@ -132,10 +130,38 @@
   margin: 1rem;
 }
 
+.playerScore:nth-child(1) {
+  background-color: gold;
+  color: var(--white);
+}
+
+.playerScore:nth-child(2) {
+  background-color: silver;
+  color: var(--white);
+}
+
+.playerScore:nth-child(3) {
+  background-color: #cd7f32;
+  color: var(--white);
+}
+
 .message-container {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  width: 55vw;
+  margin-top: 5rem;
+}
+
+.message-end {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  margin-top: 5rem;
+  width: auto;
+  height: auto;
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin: 1rem;
 }
