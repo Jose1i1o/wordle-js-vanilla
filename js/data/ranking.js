@@ -1,32 +1,32 @@
 export const ranking = [
     {
         name: "Alice",
-        score: 15,
+        score: 29,
         attempts: 3,
     },
     {
         name: "Emilio",
-        score: 13,
+        score: 28,
         attempts: 3,
     },
     {
         name: "Lola",
-        score: 12,
+        score: 22,
         attempts: 4,
     },
     {
         name: "Mia",
-        score: 11,
+        score: 31,
         attempts: 5,
     },
     {
         name: "Nina",
-        score: 10,
+        score: 42,
         attempts: 5,
     },
     {
         name: "Olivia",
-        score: 9,
+        score: 18,
         attempts: 6,
     },
 ]

@@ -5,17 +5,20 @@ import { getUserName } from "./utils/getUsername.js";
 export const endContainer = function() {
     messageText();
     rankingContainer();
+    document.getElementById("endReplay").addEventListener("click", function() {location.reload()})
 }
 
 const messageText = function() {
     const score = getScore();
     const userName = getUserName("get");
     const message = document.getElementById("messageEnd");
+    const lineBreak = '<br>';
+
     if (score === 0) {
-        message.textContent = `${userName}, you lost!`;
+        message.textContent = `${userName}, you lost! The word was ${secretWord}`;
     }
     if (score > 0) {
-        message.textContent = `Congratulations, ${userName}! Your score is ${score}`;
+        message.innerHTML = `Congratulations, ${userName}! 🎉 You finished the game.`+ lineBreak + `Your score is ${score} points.`;
     }
 
     const messageText = document.createElement('div');

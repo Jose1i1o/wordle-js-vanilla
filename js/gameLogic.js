@@ -1,14 +1,16 @@
 import { rowAttempts } from "./data/grid.js"
 import { upliftingMessages } from "./data/uplifting.js"
 import { endContainer } from "./endGame.js";
+import { secretWordList } from "./data/words.js";
 
 const gridDisplay = document.querySelector('.game-grid');
 const keyboard = document.querySelector('.keyboard-container');
 const messageContainer = document.querySelector('.message-container');
 
-const secretWord = "aaaaa";
+let secretWord = secretWordList[Math.ceil(Math.random() * secretWordList.length)].toLocaleLowerCase();
 let thisRow = 0;
 let thisColumn = 0;
+console.log(secretWord);
 
 const keyboardKeys = [
     {
@@ -240,7 +242,7 @@ const checkMyRow = function() {
             displayMessage(upliftingMessages[Math.ceil(Math.random() * upliftingMessages.length)]);
             return;
         } else if (myAttempt !== secretWord && thisRow >= 5) {
-            displayMessage('Game Over!');
+                displayMessage(`You lost! The word was ${secretWord}`);
             return;
         }
     }
