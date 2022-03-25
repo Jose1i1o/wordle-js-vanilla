@@ -1,6 +1,9 @@
-* {
+*,
+*:before,
+*:after {
   color: var(--white);
   font-family: "Roboto", Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 
 body,
